@@ -1,0 +1,50 @@
+version: '3.1'
+
+services:
+  app:
+    build:
+      args:
+        user: root
+        uid: 1
+      context: ./
+      dockerfile: Dockerfile
+    image: web
+    container_name: web
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./notes-api:/var/www
+    networks:
+      - network
+      
+  db:
+    image: mysql
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - network
+      
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./notes-api:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - network
+  
+networks:
+  network:
+    driver: bridge
