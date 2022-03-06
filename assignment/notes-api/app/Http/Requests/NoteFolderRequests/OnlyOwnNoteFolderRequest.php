@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\NoteFolderRequests;
 
-use App\Models\Note;
+use App\Models\NoteFolder;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateNoteRequest extends FormRequest
+class OnlyOwnNoteFolderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,9 @@ class CreateNoteRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $noteFolderId = $this->route('folder');
+
+        return (bool)NoteFolder::where("id", $noteFolderId)->where('user_id', auth()->user()->id)->first();
     }
 
     /**
@@ -24,6 +26,6 @@ class CreateNoteRequest extends FormRequest
      */
     public function rules()
     {
-        return Note::getFormRules();
+        return [];
     }
 }

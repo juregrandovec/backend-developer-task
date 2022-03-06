@@ -37,7 +37,7 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->string('title', 100);
-            $table->string('body', 255);
+            $table->text('body');
             $table->boolean('is_public');
 
             $table->foreignId('user_id');
@@ -47,15 +47,15 @@ return new class extends Migration {
             $table->foreign('note_type_id')->references('id')->on('note_types');
         });
 
-        Schema::create('note_note_folders', function (Blueprint $table) {
+        Schema::create('notes_note_folders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
             $table->foreignId('note_id');
-            $table->foreign('note_id')->references('id')->on('notes');
+            $table->foreign('note_id')->references('id')->on('notes')->cascadeOnDelete();
 
             $table->foreignId('note_folder_id');
-            $table->foreign('note_folder_id')->references('id')->on('note_folders');
+            $table->foreign('note_folder_id')->references('id')->on('note_folders')->cascadeOnDelete();
         });
     }
 
@@ -66,7 +66,7 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('note_note_folders');
+        Schema::dropIfExists('notes_note_folders');
         Schema::dropIfExists('notes');
         Schema::dropIfExists('note_folders');
         Schema::dropIfExists('note_types');

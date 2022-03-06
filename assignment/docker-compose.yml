@@ -16,7 +16,7 @@ services:
       - ./notes-api:/var/www
     networks:
       - network
-      
+
   db:
     image: mysql
     container_name: db
@@ -31,10 +31,11 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
+      - db_volume:/var/lib/mysql
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
       - network
-      
+
   nginx:
     image: nginx
     container_name: nginx
@@ -46,7 +47,10 @@ services:
       - ./docker-compose/nginx:/etc/nginx/conf.d
     networks:
       - network
-  
+
 networks:
   network:
     driver: bridge
+
+volumes:
+  db_volume:

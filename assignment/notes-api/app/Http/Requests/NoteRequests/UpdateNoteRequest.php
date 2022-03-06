@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\NoteRequests;
 
 use App\Models\Note;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OnlyOwnNoteRequest extends FormRequest
+class UpdateNoteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,6 +26,6 @@ class OnlyOwnNoteRequest extends FormRequest
      */
     public function rules()
     {
-        return [];
+        return Note::getFormRules();
     }
 }

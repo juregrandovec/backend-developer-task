@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "c6416b83-75dd-496b-a5d0-4c65d45743b7",
+		"name": "[TEST] Note Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login as User1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", jsonData.access_token);\r",
+									"postman.setEnvironmentVariable(\"USER_1_ACCESS_TOKEN\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "54ae64df30bcc7c4e5d9489537bfc7f988cb900e3b0002c63684c0323ac8b675",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{EMAIL1}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{PASSWORD}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as User2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "54ae64df30bcc7c4e5d9489537bfc7f988cb900e3b0002c63684c0323ac8b675",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{EMAIL2}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{PASSWORD}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/user",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "create - type text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"asd\",\r\n    \"body\": \"body\",\r\n    \"is_public\": false,\r\n    \"note_folder_id\": null,\r\n    \"note_type_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/notes",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - type list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"asd\",\r\n    \"body\": \"<li>first</li><li>second</li>\",\r\n    \"is_public\": false,\r\n    \"note_folder_id\": null,\r\n    \"note_type_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/notes",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Updated title\",\r\n    \"body\": \"Updated body\",\r\n    \"is_public\": true,\r\n    \"note_type_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/notes/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/notes/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list - pagination + order + filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/notes?typeId=2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Pagination page number",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "10",
+									"description": "Pagination per_page number",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "title",
+									"description": "Sort by attribute",
+									"disabled": true
+								},
+								{
+									"key": "order_direction",
+									"value": "DESC",
+									"description": "Sort by direction",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "test",
+									"description": "Filter by Title",
+									"disabled": true
+								},
+								{
+									"key": "isPublic",
+									"value": "true",
+									"description": "Filter by is_public attribute",
+									"disabled": true
+								},
+								{
+									"key": "body",
+									"value": "b",
+									"description": "Filter by Note body content",
+									"disabled": true
+								},
+								{
+									"key": "folder",
+									"value": "title",
+									"description": "Filter by Folder name",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "T",
+									"description": "Filter by Type name",
+									"disabled": true
+								},
+								{
+									"key": "typeId",
+									"value": "2",
+									"description": "Filter by Type Id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/notes/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folders",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Title\",\r\n    \"description\": \"Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/folders",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Updated Title\",\r\n    \"description\": \"Updated Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/folders/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"folders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/folders/3",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"folders",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/folders/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"folders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list - pagination + order + filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/folders",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"folders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Pagination page number",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "10",
+									"description": "Pagination per_page number",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "",
+									"description": "Sort by attribute",
+									"disabled": true
+								},
+								{
+									"key": "order_direction",
+									"value": "DESC",
+									"description": "Sort by direction",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "",
+									"description": "Filter by folder title",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tests",
+			"item": [
+				{
+					"name": "User1 shouldn't see Notes from User2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{USER_1_ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/notes/11",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"notes",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User1 shouldn't see Folders from User2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{USER_1_ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/folders/6",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"folders",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{ACCESS_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

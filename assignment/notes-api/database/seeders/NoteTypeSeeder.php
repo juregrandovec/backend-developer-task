@@ -23,7 +23,7 @@ class NoteTypeSeeder extends Seeder
                 ['id' => 2, 'title' => 'List', 'description' => 'List note type', 'type' => NoteEnum::NOTE_TYPE_LIST]
             ];
 
-            DB::table(NoteType::getTable())->insert($noteTypeInsertData);
+            DB::table((new NoteType())->getTable())->insert($noteTypeInsertData);
         }
 
     }

@@ -4,17 +4,26 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\CreateNoteRequest;
-use App\Http\Requests\OnlyOwnNoteRequest;
-use App\Http\Requests\UpdateNoteRequest;
+use App\Http\Requests\NoteRequests\CreateNoteRequest;
+use App\Http\Requests\NoteRequests\OnlyOwnNoteRequest;
+use App\Http\Requests\NoteRequests\UpdateNoteRequest;
 use App\Services\NoteService;
+use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
-    public function create(CreateNoteRequest $request, NoteService $noteService)
+    /**
+     * @param CreateNoteRequest $request
+     * @param NoteService $noteService
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function create(CreateNoteRequest $request, NoteService $noteService): JsonResponse
     {
         $payload = $request->all();
-
         $payload['user_id'] = auth()->user()->id;
 
         $note = $noteService->createNewNoteFromPayload($payload);
@@ -22,7 +31,14 @@ class NoteController extends Controller
         return response()->json(['id' => $note->id]);
     }
 
-    public function update($id, UpdateNoteRequest $request, NoteService $noteService)
+    /**
+     * @param $id
+     * @param UpdateNoteRequest $request
+     * @param NoteService $noteService
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function update($id, UpdateNoteRequest $request, NoteService $noteService): JsonResponse
     {
         $payload = $request->all();
 
@@ -31,23 +47,39 @@ class NoteController extends Controller
         return response()->json(['id' => $note->id]);
     }
 
-    public function delete($id, OnlyOwnNoteRequest $request, NoteService $noteService)
+    /**
+     * @param $id
+     * @param OnlyOwnNoteRequest $request
+     * @param NoteService $noteService
+     * @return JsonResponse
+     */
+    public function delete($id, OnlyOwnNoteRequest $request, NoteService $noteService): JsonResponse
     {
         $success = $noteService->deleteNote($id);
+
         return response()->json(['success' => (bool)$success]);
     }
 
-    public function get($id, OnlyOwnNoteRequest $request, NoteService $noteService)
+    /**
+     * @param $id
+     * @param OnlyOwnNoteRequest $request
+     * @param NoteService $noteService
+     * @return JsonResponse
+     */
+    public function get($id, OnlyOwnNoteRequest $request, NoteService $noteService): JsonResponse
     {
         $note = $noteService->getNote($id);
 
         return response()->json($note);
     }
 
-    public function list(NoteService $noteService)
+    /**
+     * @param Request $request
+     * @param NoteService $noteService
+     * @return LengthAwarePaginator
+     */
+    public function list(Request $request, NoteService $noteService): LengthAwarePaginator
     {
-        $notes = $noteService->getNotes();
-
-        return response()->json($notes);
+        return $noteService->getNotes($request->all());
     }
 }
