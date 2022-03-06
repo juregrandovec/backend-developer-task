@@ -24,8 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87c14c3d-dbc0-485c-a0b9-4a1c84ba70a4" name="Default Changelist" comment="Add Notes&#10;&#10;Add CRUD for Notes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/database-instructions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../database/database-instructions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../postman/[TEST] Note Api.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/../postman/[TEST] Note Api.postman_collection.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +220,7 @@
       <workItem from="1646501747566" duration="5153000" />
       <workItem from="1646546303892" duration="10698000" />
       <workItem from="1646559371900" duration="729000" />
-      <workItem from="1646560194918" duration="14486000" />
+      <workItem from="1646560194918" duration="15763000" />
     </task>
     <task id="LOCAL-00001" summary="Add Notes&#10;&#10;Add CRUD for Notes">
       <created>1646506326874</created>

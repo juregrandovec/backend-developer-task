@@ -144,7 +144,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"asd\",\r\n    \"body\": \"body\",\r\n    \"is_public\": false,\r\n    \"note_folder_id\": null,\r\n    \"note_type_id\": 1\r\n}",
+							"raw": "{\r\n    \"title\": \"asd\",\r\n    \"body\": \"text body\",\r\n    \"is_public\": false,\r\n    \"note_folder_id\": null,\r\n    \"note_type_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -170,7 +170,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"asd\",\r\n    \"body\": \"<li>first</li><li>second</li>\",\r\n    \"is_public\": false,\r\n    \"note_folder_id\": null,\r\n    \"note_type_id\": 1\r\n}",
+							"raw": "{\r\n    \"title\": \"asd\",\r\n    \"body\": \"['first','second','third']\",\r\n    \"is_public\": false,\r\n    \"note_folder_id\": null,\r\n    \"note_type_id\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,7 +240,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{API_URL}}/notes?typeId=2",
+							"raw": "{{API_URL}}/notes?typeId=1",
 							"host": [
 								"{{API_URL}}"
 							],
@@ -304,7 +304,7 @@
 								},
 								{
 									"key": "typeId",
-									"value": "2",
+									"value": "1",
 									"description": "Filter by Type Id"
 								}
 							]
