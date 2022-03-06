@@ -23,45 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87c14c3d-dbc0-485c-a0b9-4a1c84ba70a4" name="Default Changelist" comment="Add Notes&#10;&#10;Add CRUD for Notes">
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Http/Controllers/NoteFolderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Http/Requests/NoteFolderRequests/CreateNoteFolderRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Http/Requests/NoteFolderRequests/OnlyOwnNoteFolderRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Http/Requests/NoteRequests/UpdateNoteRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Services/NoteFolderService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Services/Service.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Traits/HasFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/FilterBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/FilterContract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFilters/Body.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFilters/Folder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFilters/IsPublic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFilters/Title.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFilters/Type.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFilters/TypeId.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/app/Utilities/NoteFolderFilters/Title.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/database/factories/NoteFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/database/factories/NoteFolderFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/database/seeders/NoteFolderSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-api/database/seeders/NoteSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c18506fe-de1c-4d61-888e-885290519ccc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c18506fe-de1c-4d61-888e-885290519ccc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Http/Controllers/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Http/Controllers/NoteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Http/Requests/CreateNoteRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Http/Requests/NoteRequests/CreateNoteRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Http/Requests/OnlyOwnNoteRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Http/Requests/NoteRequests/OnlyOwnNoteRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Http/Requests/UpdateNoteRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Http/Requests/NoteFolderRequests/UpdateNoteFolderRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Models/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Models/Note.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Models/NoteFolder.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Models/NoteFolder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/app/Services/NoteService.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/app/Services/NoteService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/database/migrations/2022_03_05_154019_create_note_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/database/migrations/2022_03_05_154019_create_note_tables.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/database/seeders/AdminSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/database/seeders/NoteTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/database/seeders/NoteTypeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-api/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-api/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes-api/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/database-instructions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../database/database-instructions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +221,7 @@
       <workItem from="1646501747566" duration="5153000" />
       <workItem from="1646546303892" duration="10698000" />
       <workItem from="1646559371900" duration="729000" />
-      <workItem from="1646560194918" duration="13448000" />
+      <workItem from="1646560194918" duration="14486000" />
     </task>
     <task id="LOCAL-00001" summary="Add Notes&#10;&#10;Add CRUD for Notes">
       <created>1646506326874</created>

@@ -1,1 +1,3 @@
 The data will be automatically seeded in the DB when following application README.md
+
+This folder also contains .env file with credentials that should be copied into the ".env" file inside the "/notes-api" folder.
